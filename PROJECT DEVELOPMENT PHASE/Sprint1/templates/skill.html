@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> Skill-Up </title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+    
+    
+    <link rel="icon" href="">
+
+    <style>
+      .carousel-inner img {
+        width: 100%;
+        /* height: 100%; */
+      }
+      .slideShow{
+        height: 40%;
+        margin: 50px;
+        background-color: aliceblue;
+        margin-top: 10px;
+      }
+
+      .li{
+        text-decoration: none;
+      }
+
+      a {
+        color: white;
+      }
+        
+      .shfooter .collapse {
+        display: inherit;
+      }
+        @media (max-width: 767px) {
+          .shfooter ul {
+            margin-bottom: 0;
+          }
+        
+          .shfooter .collapse {
+            display: none;
+          }
+        
+          .shfooter .collapse.show {
+            display: block;
+          }
+        
+          .shfooter .title .fa-angle-up,
+          .shfooter .title[aria-expanded="true"] .fa-angle-down {
+            display: none;
+          }
+        
+          .shfooter .title[aria-expanded="true"] .fa-angle-up {
+            display: block;
+          }
+        
+          .shfooter .navbar-toggler {
+            display: inline-block;
+            padding: 0;
+          }
+        }
+        
+        .resize {
+          text-align: center;
+        }
+        .resize {
+          margin-top: 3rem;
+          font-size: 1.25rem;
+        }
+        /*RESIZESCREEN ANIMATION*/
+        .fa-angle-double-right {
+          animation: rightanime 1s linear infinite;
+        }
+        
+        .fa-angle-double-left {
+          animation: leftanime 1s linear infinite;
+        }
+        @keyframes rightanime {
+          50% {
+            transform: translateX(10px);
+            opacity: 0.5;
+          }
+          100% {
+            transform: translateX(10px);
+            opacity: 0;
+          }
+        }
+        @keyframes leftanime {
+          50% {
+            transform: translateX(-10px);
+            opacity: 0.5;
+          }
+          100% {
+            transform: translateX(-10px);
+            opacity: 0;
+          }
+        }
+
+      
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="container-fluid p-3 bg-primary text-white shadow">
+      <h1> Skill-Up </h1>
+      <p> A Skill/Job Recommender for All!!</p>
+    </div>
+
+    
+    <!--Navigation bar-->
+    <nav class="navbar navbar-expand-sm sticky-top shadow ">
+      
+      <div class="container">
+            <!--Logo-->
+            <!-- <a class="navbar-brand" href="#">
+              <img src="ZTIcon.png" alt="logo" height="60px" width="150px">
+            </a> -->
+            <!--Nav Menu-->
+            <div class="collapse navbar-collapse " id="collapsibleNavbar">
+              <ul class="navbar-nav">
+                <li class="nav-item ">
+                  <a class="nav-link text-primary" href="#"> <h3><b>Home &nbsp; &nbsp; &nbsp;</b></h3> </a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link text-primary" href="#" data-toggle="dropdown"> <h3><b>About &nbsp; &nbsp; &nbsp; </b></h3> </a>
+                  <!-- <div class="dropdown-menu">
+                    <a class="dropdown-item" href="">Overview</a>
+                    <a class="dropdown-item" href="">Our Values</a>
+                    <a class="dropdown-item" href="">Our Mission</a>
+                    <a class="dropdown-item" href="">Our Approch</a>
+                    <a class="dropdown-item" href="">Leadership Team</a>
+                    <a class="dropdown-item" href="">Awards</a>
+                    <a class="dropdown-item" href="">Equiry</a>
+                  </div> -->
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-primary" href="#"> <h3><b> Job &nbsp; &nbsp; &nbsp; </b></h3> </a>
+                </li> 
+                <li class="nav-item">
+                  <a class="nav-link text-primary" href="#"> <h3><b> Career  &nbsp; &nbsp; &nbsp; </b></h3> </a>
+                </li>    
+                <li class="nav-item">
+                  <a class="nav-link text-primary" href="#"> <h3><b> Skill  &nbsp; &nbsp; &nbsp; </b></h3> </a>
+                </li> 
+              </ul>
+            </div>
+
+            <!-- Search Bar -->
+            <form class="navbar-form navbar-left" action="/action_page.php">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search" name="search">
+                <div class="input-group-btn">
+                  <button class="btn btn-default" type="submit">
+                    <i class="glyphicon glyphicon-search"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+
+            <button class="navbar-toggler" type="button"
+                data-toggle="collapse" 
+                data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" 
+                aria-expanded="false" 
+                aria-label="Toggle navigation">
+                  
+                <span class="navbar-toggler-icon"></span>
+            </button>
+      </div>
+
+    </nav>
+
+    <!--carousel-->
+    <!-- <div class="slideShow">
+      <div id="demo" class="carousel slide" data-ride="carousel">
+        <ul class="carousel-indicators">
+          <li data-target="#demo" data-slide-to="0" class="active"></li>
+          <li data-target="#demo" data-slide-to="1"></li>
+          <li data-target="#demo" data-slide-to="2"></li>
+          <li data-target="#demo" data-slide-to="3"></li>
+          <li data-target="#demo" data-slide-to="4"></li>
+        </ul>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="img1.jpg" alt="Los Angeles" width="1100" height="500">
+            <div class="carousel-caption">
+              <h3>Technologies</h3>
+              <p>Digital World</p>
+            </div>   
+          </div>
+          <div class="carousel-item">
+            <img src="img1.jpg" alt="Chicago" width="1100" height="500">
+            <div class="carousel-caption">
+              <h3>Computers</h3>
+              <p>Human Machines</p>
+            </div>   
+          </div>
+          <div class="carousel-item">
+            <img src="img1.jpg" alt="New York" width="1100" height="500">
+            <div class="carousel-caption">
+              <h3>Bot</h3>
+              <p>Hello World!!!</p>
+            </div>   
+          </div>
+          <div class="carousel-item">
+            <img src="img1.jpg" alt="Chicago" width="1100" height="500">
+            <div class="carousel-caption">
+              <h3>Light Waves</h3>
+              <p>Tech World</p>
+            </div>   
+          </div>
+          <div class="carousel-item">
+            <img src="img1.jpg" alt="Chicago" width="1100" height="500">
+            <div class="carousel-caption">
+              <h3>Programmer</h3>
+              <p>Creation of solution</p>
+            </div>   
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+      </div>
+    </div> -->
+
+    <!-- filter -->
+    <div class=" container ">
+        <form class="navbar-form navbar-left" action="/action_page.php">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search by Job" name="search">
+              <div class="input-group-btn">
+                <button class="btn btn-default" type="submit">
+                  <i class="glyphicon glyphicon-search"></i>
+                </button>
+              </div>
+            </div>
+        </form>
+        <form action="">
+            <button type="file" class="btn btn-primary" data-toggle="collapse" data-target="#demo">
+                Post Your Resume
+            </button>
+        </form>
+
+    </div> <br>
+
+<!--content-->
+    <div class="container">
+      <div class="row">
+          <div class="col">
+              <div class="card h-100 bg-light">
+                  <img src="\static\img1.jpg" class="card-img-top" alt="..." height="350px" width="350px">
+                  <div class="card-body">
+                    <h1 class="card-title bg-primary text-white"> Company Name</h1>
+                    <h4 class="card-subtitle mb-2">HR Role</h4>
+                    <p class="card-text">
+                      
+                  </p> <br> <br> <br>
+                  <center>
+                    <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">Apply Now</button>
+                  </center>
+                  <div id="demo" class="collapse"> <br>
+                  </div>
+                  </div>
+                   
+              </div>
+          </div>
+          <div class="col">
+              <div class="card h-100 bg-light">
+                  <img src="\static\img1.jpg" class="card-img-top" alt="..." height="350px" width="350px">
+                  <div class="card-body">
+                    <h1 class="card-title bg-primary text-white">Company Name</h1>
+                    <h4 class="card-subtitle mb-2">Senior Software engineer</h4>
+                    <p class="card-text">
+                      
+                    </p> <br> <br>
+                    <center>
+                      <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">Apply Now</button>
+                    </center>
+                    <div id="demo" class="collapse"> <br>
+                    </div>
+                  </div>
+                  
+              </div>
+          </div>
+          <div class="col">
+              <div class="card h-100 bg-light">
+                  <img src="\static\img1.jpg" class="card-img-top" alt="..." height="350px" width="350px">
+                  <div class="card-body">
+                    <h1 class="card-title bg-primary text-white">Company Name</h1>
+                    <h4 class="card-subtitle mb-2">Data Analyst</h4>
+                    <p class="card-text">
+                      
+                    </p> <br><br><br>
+                    <center>
+                      <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">Apply Now</button>
+                    </center>
+                    <div id="demo" class="collapse"> <br>
+                    </div>
+                  </div>
+                  
+                   <br> 
+              </div>
+          </div>
+      </div>
+  </div> <br> <br>
+
+      <!--footer-->
+    <footer id="footer" class="bg-primary text-white d-flex-column text-center">
+      <hr class="mt-0">
+      <!--Social buttons-->
+      <div class="text-center">
+        <h4>You can find us at</h4>
+        <ul class="list-unstyled list-inline">
+          <li class="list-inline-item">
+            <a href="#!" class="sbtn btn-large mx-1" title="Facebook">
+              <i class="fab fa-facebook-square fa-2x"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#!" class="sbtn btn-large mx-1" title="Linkedin">
+              <i class="fab fa-linkedin fa-2x"></i>
+            </a>
+            
+          </li>
+          <li class="list-inline-item">
+            <a href="#!" class="sbtn btn-large mx-1" title="Twitter">
+              <i class="fab fa-twitter-square fa-2x"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#!" class="sbtn btn-large mx-1" title="Youtube">
+              <i class="fab fa-youtube-square fa-2x"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!--/.Social buttons-->
+      <hr class="mb-0">
+      <!--Footer Links-->
+      <div class="container text-left text-md-center">
+        <div class="row">
+          <!--First column-->
+          <div class="col-md-3 mx-auto shfooter">
+            <h5 class="my-2 font-weight-bold d-none d-md-block ">Product</h5>
+            <div class="d-md-none title" data-target="#Product" data-toggle="collapse">
+              <div class="mt-3 font-weight-bold">
+                <div class="float-right navbar-toggler">
+                  <i class="fas fa-angle-down"></i>
+                  <i class="fas fa-angle-up"></i>
+                </div>
+              </div>
+            </div>
+            <ul class="list-unstyled collapse" id="Product">
+              <li><a href="#">Create Websites</a></li>
+              <li><a href="#">Secure Cloud Hosting</a></li>
+              <li><a href="#">Engage Your Audience</a></li>
+              <li><a href="#">Website Support</a></li>
+            </ul>
+          </div>
+          <!--/.First column-->
+          <hr class="clearfix w-100 d-md-none mb-0">
+          <!--Second column-->
+          <div class="col-md-3 mx-auto shfooter">
+            <h5 class="my-2 font-weight-bold d-none d-md-block">Company</h5>
+            <div class="d-md-none title" data-target="#Company" data-toggle="collapse">
+              <div class="mt-3 font-weight-bold">Company
+                <div class="float-right navbar-toggler">
+                  <i class="fas fa-angle-down"></i>
+                  <i class="fas fa-angle-up"></i>
+                </div>
+              </div>
+            </div>
+            <ul class="list-unstyled collapse" id="Company">
+              <li><a href="#">About</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Support</a></li>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+          <!--/.Second column-->
+          <hr class="clearfix w-100 d-md-none mb-0">
+          <!--Third column-->
+          <div class="col-md-3 mx-auto shfooter">
+            <h5 class="my-2 font-weight-bold d-none d-md-block">Resources</h5>
+            <div class="d-md-none title" data-target="#Resources" data-toggle="collapse">
+              <div class="mt-3 font-weight-bold">Resources
+                <div class="float-right navbar-toggler">
+                  <i class="fas fa-angle-down"></i>
+                  <i class="fas fa-angle-up"></i>
+                </div>
+              </div>
+            </div>
+            <ul class="list-unstyled collapse" id="Resources">
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">eBooks</a></li>
+              <li><a href="#">Whitepapers</a></li>
+              <li><a href="#">Comparison Guide</a></li>
+              <li><a href="#">Website Grader</a></li>
+            </ul>
+          </div>
+          <!--/.Third column-->
+          <hr class="clearfix w-100 d-md-none mb-0">
+          <!--Fourth column-->
+          <div class="col-md-3 mx-auto shfooter">
+            <h5 class="my-2 font-weight-bold d-none d-md-block">Get Help</h5>
+            <div class="d-md-none title" data-target="#Get-Help" data-toggle="collapse">
+              <div class="mt-3 font-weight-bold">Get Help
+                <div class="float-right navbar-toggler">
+                  <i class="fas fa-angle-down"></i>
+                  <i class="fas fa-angle-up"></i>
+                </div>
+              </div>
+            </div>
+            <ul class="list-unstyled collapse" id="Get-Help">
+              <li><a href="#" target="_blank">Help Center</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">Login</a></li>
+            </ul>
+          </div>
+          <!--/.Fourth column-->
+        </div>
+      </div>
+      <!--/.Footer Links-->
+      <hr class="mb-0">
+      <!--Copyright-->
+      <div class="py-3 text-center">
+        Copyright @ 2022 | <a href=""> skill-up.com</a>
+      </div>
+      <!--/.Copyright-->
+    </footer>
+
+  </body>
+</html>
