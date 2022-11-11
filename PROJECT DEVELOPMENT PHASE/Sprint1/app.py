@@ -10,7 +10,7 @@ print("success")
 var_list = []
 
 app = Flask(__name__)
-
+app.secret_key='a'
 @app.route('/')
 def home():
   return render_template('login.html')
@@ -56,10 +56,6 @@ def login():
       account = ibm_db.fetch_assoc(stmt)
 
       if account:
-          session['loggedin'] = True
-          session['id'] = account['ID']
-          session['email'] = account['EMAILID']
-          session['name'] = account['FIRSTNAME']
           msg = 'Logged in successfully !'
           return render_template('skill.html', msg = msg)
       else:
