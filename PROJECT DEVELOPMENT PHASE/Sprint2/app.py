@@ -66,7 +66,7 @@ def linkedlogin():
   username = request.form['username']
   # password= request.form['password']
   # email = request.form['email']
-  # api=Linkedin("bhuvanameenakshinathan@gmail.com","bhuvaneswari18#M")
+ 
   # print("sdf")
   # print(api.get_profile_skills("www.linkedin.com/in/bhuvaneswari-m-a24a431a2"))
   api_endpoint = 'https://nubela.co/proxycurl/api/v2/linkedin'
