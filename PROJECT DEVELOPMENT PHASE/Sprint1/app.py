@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_mail import Mail,Message
+from linkedin_api import Linkedin
+import requests
 import pandas as pd
 import os
 ## email.mime subclasses
@@ -9,6 +11,8 @@ conn = ibm_db.connect("DATABASE=bludb;HOSTNAME=ea286ace-86c7-4d5b-8580-3fbfa46b1
 print(conn)
 print("success")
 var_list = []
+PROXYCURL_API_KEY = 'lIlwGU7otjlj1tbuyMfhlQ'  # todo - fill this field up
+
 
 app = Flask(__name__)
 app.secret_key='a'
@@ -16,7 +20,7 @@ mail = Mail(app)
 app.config['MAIL_SERVER']='smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USERNAME'] = 'kanthimathiiyyappan01@gmail.com'
-app.config['MAIL_PASSWORD'] = 'axhymixsg**rhmyd'
+app.config['MAIL_PASSWORD'] = 'axhymixsgxvrhmyd'
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 mail = Mail(app)
@@ -25,6 +29,10 @@ mail = Mail(app)
 @app.route('/')
 def home():
   return render_template('login.html')
+
+@app.route('/linkpass')
+def linkpass():
+  return render_template('linked.html')
 
 
 @app.route('/skillreg',methods=["POST", "GET"])
@@ -51,6 +59,27 @@ def dashhome():
 @app.route('/register',methods=["POST", "GET"])
 def register():
   return render_template('register.html')
+
+
+@app.route('/linkedlogin',methods=["POST", "GET"])
+def linkedlogin():
+  username = request.form['username']
+  # password= request.form['password']
+  # email = request.form['email']
+  # api=Linkedin("bhuvanameenakshinathan@gmail.com","bhuvaneswari18#M")
+  # print("sdf")
+  # print(api.get_profile_skills("www.linkedin.com/in/bhuvaneswari-m-a24a431a2"))
+  api_endpoint = 'https://nubela.co/proxycurl/api/v2/linkedin'
+  header_dic = {'Authorization': 'Bearer ' + PROXYCURL_API_KEY}
+  params = {
+      'url': f'https://www.linkedin.com/in/{username}',
+  }
+  response = requests.get(api_endpoint,
+                          params=params,
+                          headers=header_dic)
+  print(response.json())
+  return render_template('skill.html')
+
 
 @app.route('/confirm',methods=["POST", "GET"])
 def confirm():
