@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> Skill-Up </title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    
+    
+    <link rel="icon" href="">
+
+    <style>
+      
+.place{
+  font-size: 16px;
+  display: block;
+  font-family: 'Rubik', sans-serif;
+  width: 100%;
+  padding: 10px 1px;
+  border: 0;
+  border-bottom: 1px solid #747474;
+  outline: none;
+}
+label{
+font-size:19px;
+}
+td{
+padding:14px;
+}
+.btn{
+color:white;
+font-size:16px;
+background-color: #007bff;
+border-radius: 5px;
+width:100px;
+height:40px;
+text-align: center;
+padding:9px;
+}
+
+.btn:hover{
+ background-color: whitesmoke;
+ color:#007bff;
+}
+*{
+font-family:Georgia;
+}
+.head
+{
+padding-top:55px;
+padding-bottom:55px;
+text-align:center;
+font-family:Georgia;
+}
+.head h1{
+color:white;
+}
+body{
+background-image:transparent;
+}
+.bodymain{
+background-color:#fff;
+border-radius:7px;
+height:330px;
+width:450px;
+padding-top:15px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+      .li{
+        text-decoration: none;
+      }
+
+      a {
+        color: white;
+      }
+        
+      .shfooter .collapse {
+        display: inherit;
+      }
+        @media (max-width: 767px) {
+          .shfooter ul {
+            margin-bottom: 0;
+          }
+        
+          .shfooter .collapse {
+            display: none;
+          }
+        
+          .shfooter .collapse.show {
+            display: block;
+          }
+        
+          .shfooter .title .fa-angle-up,
+          .shfooter .title[aria-expanded="true"] .fa-angle-down {
+            display: none;
+          }
+        
+          .shfooter .title[aria-expanded="true"] .fa-angle-up {
+            display: block;
+          }
+        
+          .shfooter .navbar-toggler {
+            display: inline-block;
+            padding: 0;
+          }
+        }
+        
+        .resize {
+          text-align: center;
+        }
+        .resize {
+          margin-top: 3rem;
+          font-size: 1.25rem;
+        }
+        /*RESIZESCREEN ANIMATION*/
+        .fa-angle-double-right {
+          animation: rightanime 1s linear infinite;
+        }
+        
+        .fa-angle-double-left {
+          animation: leftanime 1s linear infinite;
+        }
+        @keyframes rightanime {
+          50% {
+            transform: translateX(10px);
+            opacity: 0.5;
+          }
+          100% {
+            transform: translateX(10px);
+            opacity: 0;
+          }
+        }
+        @keyframes leftanime {
+          50% {
+            transform: translateX(-10px);
+            opacity: 0.5;
+          }
+          100% {
+            transform: translateX(-10px);
+            opacity: 0;
+          }
+        }
+
+      
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="container-fluid p-3 bg-primary text-white shadow">
+      <a href="skillin.html" class="text-decoration-none text-white"><h1> <b>Skill-Up</b> </h1></a>
+      <div class="dropdown float-right" style="margin-top: -50px; margin-right: 50px;">
+        <button type="button" class="btn bg-white text-primary dropdown-toggle fa fa-drivers-license" data-toggle="dropdown" style="height: 40px; width: 150px;">
+          <b> &nbsp; User &nbsp;  &nbsp; </b>
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="My Profile.html">My Profile</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Logout</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- filter --> <br><br>
+    <div class=" container ">
+        <center>
+            <div  class="bodymain shadow-lg bg-white rounded">
+                <h3>Find Jobs Here</h3>
+            <form name="myform" action="/gojob" method="POST">
+            <table width="450px">
+            <tr>
+            <td>
+            <label for="job"><b>Category</b></label>
+            </td>
+            <td>
+            <input type="text" id="job" class="place" placeholder="Job title or keywords" name="job" maxlength="50" size="30">
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <label for="location"><b>Location</b></label>
+            </td>
+            <td>
+            <input type="text" id="loc" class="place" placeholder="e.g Chennai" name="loc" maxlength="50" size="30">
+            </td>
+            </tr>
+            <tr>
+            <td colspan="2" style="padding-left:160px" >
+            <input type="submit" value="Go" name="save" class="btn" id="login">
+            </td>
+            
+            </tr>
+            
+            </table>
+            </form>
+            </div>
+            </center>
+    </div> <br>
+
+<br>
+<br>
+
+      <!--footer-->
+    <footer id="footer" class="text-white d-flex-column text-center" style="background-color:#007bff;">
+      <hr class="mt-0">
+      <!--Social buttons-->
+      <div class="text-center">
+        <h4>You can find us at</h4>
+        <ul class="list-unstyled list-inline">
+          <li class="list-inline-item">
+            <a href="https://www.facebook.com/kanthimathi.iyyappan" target="_blank" class="sbtn btn-large mx-1" title="Facebook">
+              <i class="fab fa-facebook-square fa-2x"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#!" class="sbtn btn-large mx-1" title="Linkedin">
+              <i class="fab fa-linkedin fa-2x"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#!" class="sbtn btn-large mx-1" title="Twitter">
+              <i class="fab fa-twitter-square fa-2x"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!--/.Social buttons-->
+      
+      <!--Copyright-->
+      <div class="py-3 text-center text-white">
+        Copyright @ 2022 | <a href=""> skill-up.com</a>
+      </div>
+      <!--/.Copyright-->
+    </footer>
+<script>
+  window.watsonAssistantChatOptions = {
+    integrationID: "9ebae464-b593-4cd9-9022-c097d8f7e9c9", // The ID of this integration.
+    region: "au-syd", // The region your integration is hosted in.
+    serviceInstanceID: "33512651-9be1-4d7a-8f97-b40aab4ebaf6", // The ID of your service instance.
+    onLoad: function(instance) { instance.render(); }
+  };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+    document.head.appendChild(t);
+  });
+</script>
+  </body>
+</html>
