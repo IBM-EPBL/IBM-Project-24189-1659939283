@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> Skill-Up </title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    
+    <link rel="icon" href="">
+
+    <style>
+      
+.place{
+  font-size: 16px;
+  display: block;
+  font-family: 'Rubik', sans-serif;
+  width: 100%;
+  padding: 10px 1px;
+  border: 0;
+  border-bottom: 1px solid #747474;
+  outline: none;
+}
+label{
+font-size:19px;
+}
+td{
+padding:14px;
+}
+.btn{
+color:white;
+font-size:16px;
+background-color: #007bff;
+border-radius: 5px;
+width:100px;
+height:40px;
+text-align: center;
+padding:9px;
+}
+
+.btn:hover{
+ background-color: whitesmoke;
+ color:#007bff;
+}
+*{
+font-family:Georgia;
+}
+.head
+{
+padding-top:55px;
+padding-bottom:55px;
+text-align:center;
+font-family:Georgia;
+}
+.head h1{
+color:white;
+}
+body{
+background-image:transparent;
+}
+.bodymain{
+background-color:#fff;
+border-radius:7px;
+height:330px;
+width:450px;
+padding-top:15px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+      .li{
+        text-decoration: none;
+      }
+
+      a {
+        color: white;
+      }
+        
+      .shfooter .collapse {
+        display: inherit;
+      }
+        @media (max-width: 767px) {
+          .shfooter ul {
+            margin-bottom: 0;
+          }
+        
+          .shfooter .collapse {
+            display: none;
+          }
+        
+          .shfooter .collapse.show {
+            display: block;
+          }
+        
+          .shfooter .title .fa-angle-up,
+          .shfooter .title[aria-expanded="true"] .fa-angle-down {
+            display: none;
+          }
+        
+          .shfooter .title[aria-expanded="true"] .fa-angle-up {
+            display: block;
+          }
+        
+          .shfooter .navbar-toggler {
+            display: inline-block;
+            padding: 0;
+          }
+        }
+        
+        .resize {
+          text-align: center;
+        }
+        .resize {
+          margin-top: 3rem;
+          font-size: 1.25rem;
+        }
+        /*RESIZESCREEN ANIMATION*/
+        .fa-angle-double-right {
+          animation: rightanime 1s linear infinite;
+        }
+        
+        .fa-angle-double-left {
+          animation: leftanime 1s linear infinite;
+        }
+        @keyframes rightanime {
+          50% {
+            transform: translateX(10px);
+            opacity: 0.5;
+          }
+          100% {
+            transform: translateX(10px);
+            opacity: 0;
+          }
+        }
+        @keyframes leftanime {
+          50% {
+            transform: translateX(-10px);
+            opacity: 0.5;
+          }
+          100% {
+            transform: translateX(-10px);
+            opacity: 0;
+          }
+        }
+
+      
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="container-fluid p-3 bg-primary text-white shadow">
+      <a href="skill.html" class="text-decoration-none text-white"><h1> <b>Skill-Up</b> </h1></a>
+      <div class="dropdown float-right" style="margin-top: -50px; margin-right: 50px;">
+        <button type="button" class="btn bg-white text-primary dropdown-toggle fa fa-drivers-license" data-toggle="dropdown" style="height: 40px; width: 150px;">
+          <b> &nbsp; User &nbsp;  &nbsp; </b>
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="My Profile.html">My Profile</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Logout</a>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div>
+        
+            <table>
+                <tr>
+                    <th>
+                     DATE
+                    </th>
+                    <th>
+ JOB TITLE
+                    </th>
+                    <th>
+COMPANY NAME
+                    </th>
+                    <th>
+SALARY
+                    </th>
+                    <th>
+                        APPLY
+                    </th>
+                    <th>
+                       DESCRIPTION 
+                    </th>
+                </tr>
+                {% for item in data %}
+                <tr>
+                 <td>
+                    {{item.date}}
+                 </td>
+                 <td>
+                    {{item.job_title}}
+                 </td>
+                 <td>
+                    {{item.company_name}}
+                 </td>
+                 <td>
+                    {{item.salary}}
+                 </td>
+                 <td>
+                   <a>{{item.url}}</a>
+                 </td>
+                 <td>
+                    {{item.summary}}
+                 </td>
+                </tr>
+                {% endfor %}
+            </table>
+    </div>
+
+<br>
+<br>
+<script>
+  window.watsonAssistantChatOptions = {
+    integrationID: "9ebae464-b593-4cd9-9022-c097d8f7e9c9", // The ID of this integration.
+    region: "au-syd", // The region your integration is hosted in.
+    serviceInstanceID: "33512651-9be1-4d7a-8f97-b40aab4ebaf6", // The ID of your service instance.
+    onLoad: function(instance) { instance.render(); }
+  };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+    document.head.appendChild(t);
+  });
+</script>
+  </body>
+</html>
