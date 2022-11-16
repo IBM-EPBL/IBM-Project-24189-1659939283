@@ -14,4 +14,8 @@
                                                                       JOB SEARCH WITH CHATBOT 
                                                                   
 ![image](https://user-images.githubusercontent.com/90334389/202167685-37c3a06b-62eb-428b-bbf5-21dbcdec6a87.png)
+![image](https://user-images.githubusercontent.com/90334389/202248020-62bb72d8-23f3-4204-a513-19162ed47fe1.png)
+![image](https://user-images.githubusercontent.com/90334389/202248069-742402e7-c81d-4fac-985c-b3916522d951.png)
+![image](https://user-images.githubusercontent.com/90334389/202248119-13a51bc4-58a9-40f6-9521-6157659ab913.png)
+
 
