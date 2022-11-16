@@ -7,7 +7,11 @@ import os
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail as mls
 ## email.mime subclasses
-
+# Default dictionary: store a list with each key
+import pandas as pd 
+import csv
+import os
+import json
 import ibm_db
 conn = ibm_db.connect("DATABASE=bludb;HOSTNAME=ea286ace-86c7-4d5b-8580-3fbfa46b1c66.bs2io90l08kqb1od8lcg.databases.appdomain.cloud;PORT=31505;SECURITY=SSL;SSLServerCertificate=DigiCertGlobalRootCA.crt;UID=vtw87306;PWD=7Ekg9bFtTZv9f9XV",'','')
 print(conn)
@@ -57,7 +61,26 @@ def dashhome():
   ibm_db.execute(prep_stmt)
   return render_template('email.html')
 
-
+@app.route('/gojob',methods=["POST", "GET"])
+def gojob():
+    print("job")
+    url = "https://indeed11.p.rapidapi.com/"
+    p=1
+    payload = {
+        "search_terms": "Marketing",
+        "location": "United States",
+        "page": "1"
+    }
+    headers = {
+        "content-type": "application/json",
+        "X-RapidAPI-Key": "9381357d88msha354337c2eb1e98p1348a7jsn192d84997537",
+        "X-RapidAPI-Host": "indeed11.p.rapidapi.com"
+    }
+    response = requests.request("POST", url, json=payload, headers=headers)
+    html=response.text
+    dict=json.loads(html)
+    print(dict)
+    return render_template('dashboard.html',data=dict)
 @app.route('/register',methods=["POST", "GET"])
 def register():
   return render_template('register.html')
@@ -92,8 +115,8 @@ def confirm():
   print("hj")
   return render_template('Application form.html')
 
-@app.route('/submitapp',methods=["POST", "GET"])
-def submitapp():
+@app.route('/subapp',methods=["POST", "GET"])
+def subapp():
   insert_sql = "INSERT INTO DETAILSB (NAME,FNAME,GENDER,EID,ADDRESS,TENTHMARK,TWELTHMARK,DEG_CGPA,AADHAR,DOMAIN)  VALUES (?,?,?,?,?,?,?,?,?,?)"
   prep_stmt = ibm_db.prepare(conn, insert_sql)
   name = request.form['yourname']
@@ -120,19 +143,22 @@ def submitapp():
 
   print("giun")
   ibm_db.execute(prep_stmt)
-  message = mls(
-  from_email='kanthimathiiyyappan01@gmail.com',
-  to_emails='1912005@nec.edu.in',
-  subject='Your Application has been Saved',
-  html_content='<strong>Further you can edit the application form in your profile section and continue your job searching and apply to it</strong>')
-  try:
-    sg = SendGridAPIClient(os.environ.get('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'))
-    response = sg.send(message)
-    print(response.status_code)
-    print(response.body)
-    print(response.headers)
-  except Exception as e:
-    print(e.message)
+  # message = mls(
+  # from_email='kanthimathiiyyappan01@gmail.com',
+  # to_emails='1912005@nec.edu.in',
+  # subject='Your Application has been Saved',
+  # html_content='<strong>Further you can edit the application form in your profile section and continue your job searching and apply to it</strong>')
+  # try:
+  #   sg = SendGridAPIClient(os.environ.get('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'))
+  #   response = sg.send(message)
+  #   print(response.status_code)
+  #   print(response.body)
+  #   print(response.headers)
+  # except Exception as e:
+  #   print(e.message)
+  msg = Message('Your Application has been Saved', sender = 'kanthimathiiyyappan01@gmail.com', recipients = [EID])
+  msg.body = "Further you can edit the application form in your profile section and continue your job searching and apply to it"
+  mail.send(msg)
   return render_template('skill.html')
   
 
