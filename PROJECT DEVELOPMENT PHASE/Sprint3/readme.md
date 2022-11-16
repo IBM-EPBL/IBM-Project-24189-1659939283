@@ -1,8 +1,11 @@
    FRONT-END Implemented:
-         USED API:rapidapi-indeed.com
+   
+                  USED API:rapidapi-indeed.com
                   Linkedin api-Fetch skills
-         Chatbot:watson assistant
+                  Chatbot:watson assistant
+                  
    BACK-END:
+   
          IBM DB2
          
                                                                       SENDGRID ACCOUNT
