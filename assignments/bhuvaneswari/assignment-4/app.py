@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def get_instance_id():
-    return f"<b style='font-size:35px;color:green;'>Instance ID: {instance_id}</b>"
+    return f"<b style='font-size:20px;color:Red;'>Instance ID: {instance_id}</b>"
 
 
 
