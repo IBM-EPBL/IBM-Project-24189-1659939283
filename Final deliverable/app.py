@@ -87,7 +87,7 @@ def gojob():
     }
     headers = {
       "content-type": "application/json",
-      "X-RapidAPI-Key": "3949ad447bmsha76d11ba56ea795p1dcde7jsn0350741e0f8d",
+      "X-RapidAPI-Key": "be7fd5b032msh2de06b9e53f0850p1ce4b9jsna154c022de5a",
       "X-RapidAPI-Host": "indeed11.p.rapidapi.com"
     }
 
