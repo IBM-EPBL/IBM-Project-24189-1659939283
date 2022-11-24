@@ -4,5 +4,4 @@ pandas
 linkedin_api
 sendgrid
 Flask-Mail
-jsonlib
-requests
+
